@@ -1,110 +1,4 @@
-# """
-# PDF resume extractor.
-# Uses pdfplumber to extract raw text, then reuses the same
-# regex/keyword logic as notes_extractor to pull structured fields.
-# """
 
-# import re
-# from pathlib import Path
-
-# from ..warnings import WarningCollector
-
-
-# def extract_pdf(path: str | None, warnings: WarningCollector | None = None) -> list[dict]:
-#     if not path:
-#         return []
-
-#     pdf_path = Path(path)
-#     if not pdf_path.exists():
-#         if warnings:
-#             warnings.add(f"Resume PDF missing, skipped: {path}")
-#         return []
-
-#     # try importing pdfplumber — graceful if not installed
-#     try:
-#         import pdfplumber
-#     except ImportError:
-#         if warnings:
-#             warnings.add("pdfplumber not installed, PDF resume skipped. Run: pip install pdfplumber")
-#         return []
-
-#     try:
-#         text = ""
-#         with pdfplumber.open(str(pdf_path)) as pdf:
-#             for page in pdf.pages:
-#                 page_text = page.extract_text()
-#                 if page_text:
-#                     text += page_text + "\n"
-#     except Exception as exc:
-#         if warnings:
-#             warnings.add(f"Resume PDF could not be read, skipped: {exc}")
-#         return []
-
-#     if not text.strip():
-#         if warnings:
-#             warnings.add(f"Resume PDF has no extractable text, skipped: {path}")
-#         return []
-
-#     # clean up messy extracted text — collapse repeated spaces/blank lines
-#     text = re.sub(r"[ \t]+", " ", text)
-#     text = re.sub(r"\n{2,}", "\n", text)
-
-#     # reuse notes extractor logic — PDF text is just unstructured text
-#     from .notes_extractor import (
-#         EMAIL_RE, PHONE_RE,
-#         _extract_links, _extract_skills,
-#         _extract_experience, _extract_education,
-#     )
-#     from ..normalize import normalize_email, normalize_phone
-#     from ..llm_normalizer import extract_headline
-
-#     emails = sorted({
-#         e for e in (normalize_email(v) for v in EMAIL_RE.findall(text)) if e
-#     })
-#     phones = sorted({
-#         p for p in (normalize_phone(v) for v in PHONE_RE.findall(text)) if p
-#     })
-
-#     # use only the FIRST line for headline extraction to avoid
-#     # bleeding into "SKILLS" / "EXPERIENCE" section headers below it
-#     first_block = text.split("\n\n")[0] if "\n\n" in text else "\n".join(text.split("\n")[:6])
-
-#     return [{
-#         "source": "resume_pdf",
-#         "source_type": "unstructured",
-#         "reliability": 0.85,   # resume is high reliability — candidate wrote it
-#         "fields": {
-#             "emails":        emails,
-#             "phones":        phones,
-#             "links":         _extract_links(text),
-#             "headline":      extract_headline(first_block) or extract_headline(text),
-#             "skills":        _extract_skills(text),
-#             "experience":    _extract_experience(text),
-#             "education":     _extract_education(text),
-#             "location_text": _extract_location_hint(text),
-#         },
-#     }]
-
-
-# def _extract_location_hint(text: str) -> str | None:
-#     """Look for location patterns in resume text (first few lines only)."""
-#     head = "\n".join(text.split("\n")[:6])
-#     match = re.search(
-#         r"\b([A-Z][a-z]+(?:\s[A-Z][a-z]+)?),\s*([A-Z][a-zA-Z\s]+?)(?:\n|$|\|)",
-#         head
-#     )
-#     if match:
-#         return f"{match.group(1)} {match.group(2)}".strip()
-#     return None
-
-"""
-PDF resume extractor.
-Strategy: real-world resumes use irregular layouts (tables, bullet points,
-column headers) that simple regex cannot reliably parse. We use the LLM
-as the PRIMARY extraction method for resumes, with regex as a fallback
-only when no API key is available — this is the inverse of recruiter
-notes, where regex is primary because notes are short and informal.
-"""
 
 import json
 import re
@@ -220,7 +114,45 @@ Resume text:
         return None
 
 
-def _extract_resume_via_regex(text: str) -> list[dict]:
+NAME_LINE_BLOCKLIST = (
+    "resume", "curriculum vitae", "cv", "bio data", "biodata", "profile",
+    "contact", "summary", "objective", "personal details", "address",
+    "portfolio", "career objective", "about me", "linkedin", "github",
+)
+
+
+def _guess_name_heuristic(text: str) -> str | None:
+    """
+    Best-effort, no-LLM guess at the candidate's name. Resumes conventionally
+    put the name on one of the first few lines, so we check those for a line
+    that looks like "First Last" — 2-4 capitalized words, no digits, no '@',
+    not a section header. Deliberately conservative: returns None rather
+    than guess wrong if nothing clearly matches. This intentionally does NOT
+    cover every resume layout (e.g. name in a sidebar/logo block, lowercase
+    styling) — that irregularity is exactly why the LLM path exists as the
+    primary method; this heuristic only handles the common straightforward
+    case so the no-key path isn't left empty-handed entirely.
+    """
+    lines = [ln.strip() for ln in text.split("\n") if ln.strip()]
+    for line in lines[:3]:
+        candidate = line.strip(" -|\u2022\t")
+        lowered = candidate.lower()
+        if any(b in lowered for b in NAME_LINE_BLOCKLIST):
+            continue
+        if "@" in candidate or any(ch.isdigit() for ch in candidate):
+            continue
+        words = candidate.split()
+        if not (2 <= len(words) <= 4):
+            continue
+        if not all(w[0].isupper() for w in words if w[0].isalpha()):
+            continue
+        if not (4 <= len(candidate) <= 40):
+            continue
+        return candidate
+    return None
+
+
+def _extract_resume_via_regex(text: str, warnings: WarningCollector | None = None) -> list[dict]:
     """Fallback when no API key is set. Best-effort only."""
     from .notes_extractor import (
         EMAIL_RE, PHONE_RE,
@@ -234,11 +166,25 @@ def _extract_resume_via_regex(text: str) -> list[dict]:
     phones = sorted({p for p in (normalize_phone(v) for v in PHONE_RE.findall(text)) if p})
     first_block = "\n".join(text.split("\n")[:6])
 
+    full_name = _guess_name_heuristic(text)
+    if warnings:
+        if full_name:
+            warnings.add(
+                f"full_name '{full_name}' guessed via first-line heuristic (no LLM key set) "
+                "— not LLM-verified, recommend confirming"
+            )
+        else:
+            warnings.add(
+                "Could not determine full_name from resume without an LLM key "
+                "— first lines didn't match a simple name pattern"
+            )
+
     return [{
         "source": "resume_pdf",
         "source_type": "unstructured",
         "reliability": 0.6,  # lower reliability — regex on resumes is unreliable
         "fields": {
+            "full_name": full_name,
             "emails": emails,
             "phones": phones,
             "links": _extract_links(text),
