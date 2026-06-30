@@ -96,8 +96,7 @@ for why we don't guess a name from layout heuristics.
 
 | Inputs | LLM key working? | `full_name` | Skills | Confidence |
 |---|---|---|---|---|
-| CSV + notes/resume | n/a | from CSV (most reliable source) | full list (LLM) or partial (regex) | ~0.85+ |
-| Resume only, no CSV | No / unavailable | `null` — name is never guessed from resume layout, by design | ~5, hardcoded alias map only (`Java`, `Python`, `React`, etc.) | ~0.42 |
+| Resume only, no CSV | No / unavailable | best-effort guess from first lines (flagged unverified in warnings) | ~5, hardcoded alias map only | ~0.55-0.60 |
 | Resume only, no CSV | Yes | extracted directly from resume text | full list (15-25+, whatever the resume contains) | ~0.85+ |
 
 **Why `full_name` is `null` without a working LLM key and no CSV:** a name sitting
