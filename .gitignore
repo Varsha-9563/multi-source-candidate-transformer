@@ -16,4 +16,5 @@ venv/
 Thumbs.db
 
 # Old/duplicate output folder (keep outputs/ only)
-output/
+outputs/*.json
+!outputs/.gitkeep
