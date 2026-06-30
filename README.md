@@ -88,6 +88,32 @@ GEMINI_API_KEY=AIzaSy...       # fallback if Anthropic unavailable
 
 `.env` is git-ignored — never commit real keys. Without either key set, the system falls back to regex-based extraction with lower confidence (0.6 vs 0.85) — it never crashes, but resume fields parsed from complex layouts may be incomplete. You'll see a one-line `Gemini key loaded: ...` debug print on each run while a key is present; this is informational only and does not affect output correctness.
 
+## Behavior By Input Combination
+
+The same resume can produce very different output depending on what's provided
+and whether an LLM key is active. This is intentional — see "Assumptions" above
+for why we don't guess a name from layout heuristics.
+
+| Inputs | LLM key working? | `full_name` | Skills | Confidence |
+|---|---|---|---|---|
+| CSV + notes/resume | n/a | from CSV (most reliable source) | full list (LLM) or partial (regex) | ~0.85+ |
+| Resume only, no CSV | No / unavailable | `null` — name is never guessed from resume layout, by design | ~5, hardcoded alias map only (`Java`, `Python`, `React`, etc.) | ~0.42 |
+| Resume only, no CSV | Yes | extracted directly from resume text | full list (15-25+, whatever the resume contains) | ~0.85+ |
+
+**Why `full_name` is `null` without a working LLM key and no CSV:** a name sitting
+in a resume header (often near a logo, in a two-column layout, or styled
+differently from body text) isn't reliably regex-extractable. Per our
+"wrong-but-confident is worse than honestly-empty" principle, we return `null`
+with a warning instead of guessing — we do **not** fall back to a first-line
+heuristic. CSV remains the most reliable name source for this reason.
+
+**To get full resume-only extraction**, make sure `google-genai` is installed
+(`pip install -r requirements.txt` covers this) and `GEMINI_API_KEY` (or
+`ANTHROPIC_API_KEY`) is set in `.env`. Watch the terminal: if you see
+`DEBUG GEMINI SDK EXCEPTION`, the LLM call is failing and the pipeline has
+silently degraded to the regex fallback row above — output is still valid
+JSON, just lower-confidence.
+
 ## Pipeline
 
 ```text
