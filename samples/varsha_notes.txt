@@ -1,0 +1,9 @@
+spoke to varsha after a campus drive. she's been working on a college ERP 
+system using spring boot, mentioned JWT auth and role based access control. 
+also built an android app for digital wellness apparently, used kotlin.
+varshas.is23@bmsce.ac.in
+8431239563
+seemed solid on backend stuff, talked through her project architecture 
+confidently. no github or linkedin mentioned during the call, said she'd send 
+it later but never did.
+good academic record from what she said, cgpa came up in conversation.

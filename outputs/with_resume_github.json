@@ -1,0 +1,157 @@
+{
+  "candidate_id": "cand_eb523f4947",
+  "full_name": "Varsha S",
+  "emails": [
+    "varshas.is23@bmsce.ac.in"
+  ],
+  "phones": [
+    "+918431239563"
+  ],
+  "location": {
+    "city": "Bengaluru",
+    "region": "KA",
+    "country": "IN"
+  },
+  "links": {
+    "linkedin": null,
+    "github": "https://github.com/torvalds",
+    "portfolio": null,
+    "other": []
+  },
+  "headline": null,
+  "years_experience": null,
+  "skills": [
+    {
+      "name": "C",
+      "confidence": 0.75,
+      "sources": [
+        "github_api"
+      ]
+    },
+    {
+      "name": "C++",
+      "confidence": 0.75,
+      "sources": [
+        "github_api"
+      ]
+    },
+    {
+      "name": "Java",
+      "confidence": 0.6,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "confidence": 0.6,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Machine Learning",
+      "confidence": 0.6,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Openscad",
+      "confidence": 0.75,
+      "sources": [
+        "github_api"
+      ]
+    },
+    {
+      "name": "Python",
+      "confidence": 0.6,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "React",
+      "confidence": 0.6,
+      "sources": [
+        "resume_pdf"
+      ]
+    }
+  ],
+  "experience": [],
+  "education": [],
+  "provenance": [
+    {
+      "field": "full_name",
+      "source": "recruiter_csv:row_6",
+      "method": "direct_extract"
+    },
+    {
+      "field": "emails",
+      "source": "recruiter_csv:row_6",
+      "method": "regex_or_direct_extract"
+    },
+    {
+      "field": "phones",
+      "source": "recruiter_csv:row_6",
+      "method": "e164_normalization"
+    },
+    {
+      "field": "location",
+      "source": "recruiter_csv:row_6",
+      "method": "location_normalization"
+    },
+    {
+      "field": "links.github",
+      "source": "github_api",
+      "method": "regex_extract"
+    },
+    {
+      "field": "skills",
+      "source": "github_api",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "github_api",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "github_api",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    }
+  ],
+  "overall_confidence": 0.73,
+  "warnings": [
+    {
+      "level": "warning",
+      "message": "Empty CSV row skipped: row 5"
+    }
+  ]
+}

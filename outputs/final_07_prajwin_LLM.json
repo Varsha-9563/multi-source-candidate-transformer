@@ -1,0 +1,414 @@
+{
+  "candidate_id": "cand_82e4819706",
+  "full_name": "Prajwin Floyd Rodrigues",
+  "emails": [
+    "prajwinfloyd.is23@bmsce.ac.in"
+  ],
+  "phones": [],
+  "location": {
+    "city": "Bengaluru",
+    "region": "KA",
+    "country": "IN"
+  },
+  "links": {
+    "linkedin": null,
+    "github": "https://github.com/PrajwinRodrigues",
+    "portfolio": null,
+    "other": []
+  },
+  "headline": "Aspiring Software Engineer with a strong foundation in C, C++, Python, and JavaScript, passionate about backend development, databases, and system programming.",
+  "years_experience": null,
+  "skills": [
+    {
+      "name": "Agile",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Algorithms",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "C",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "C++",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "CSS",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Data Science",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Data Structures",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Flask",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Git",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "HTML",
+      "confidence": 0.95,
+      "sources": [
+        "resume_pdf",
+        "github_api"
+      ]
+    },
+    {
+      "name": "Java",
+      "confidence": 0.95,
+      "sources": [
+        "resume_pdf",
+        "github_api"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "confidence": 0.95,
+      "sources": [
+        "resume_pdf",
+        "github_api"
+      ]
+    },
+    {
+      "name": "Machine Learning",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "MongoDB",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "MySQL",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Python",
+      "confidence": 0.95,
+      "sources": [
+        "resume_pdf",
+        "github_api"
+      ]
+    },
+    {
+      "name": "Scrum",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Shell Scripting",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Unix System Programming",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": null,
+      "title": "Local Deals & Offers Web App (Project)",
+      "start": null,
+      "end": null,
+      "summary": "Built a responsive platform using HTML, CSS, Flask, and MySQL to display local offers and discounts. Integrated Flask backend with MySQL for dynamic content updates and implemented CRUD functionalities. Added user authentication, search filters, and pagination, optimizing SQL queries and backend endpoints to reduce page load time by over 30%."
+    },
+    {
+      "company": null,
+      "title": "Dynamic Sorted Linked List (Project)",
+      "start": null,
+      "end": null,
+      "summary": "Implemented a linked list in C++ maintaining sorted order on insertion and optimized pointer logic for efficient inserts."
+    },
+    {
+      "company": null,
+      "title": "Student Database Management System (Project)",
+      "start": null,
+      "end": null,
+      "summary": "Developed CRUD operations with user authentication and efficient query execution using Python and MySQL."
+    },
+    {
+      "company": "Deloitte",
+      "title": "Data Analytics Virtual Internship",
+      "start": null,
+      "end": null,
+      "summary": "Gained experience in data cleaning, dashboarding, and business recommendation workflows."
+    }
+  ],
+  "education": [
+    {
+      "institution": "BMS College of Engineering",
+      "degree": "B.E.",
+      "field": "Information Science & Engineering",
+      "end_year": 2027
+    },
+    {
+      "institution": "St. Aloysius PU College",
+      "degree": "Pre-University",
+      "field": null,
+      "end_year": null
+    },
+    {
+      "institution": "St. Aloysius High School",
+      "degree": "High School",
+      "field": null,
+      "end_year": null
+    }
+  ],
+  "provenance": [
+    {
+      "field": "full_name",
+      "source": "recruiter_csv:row_14",
+      "method": "direct_extract"
+    },
+    {
+      "field": "emails",
+      "source": "recruiter_csv:row_14",
+      "method": "regex_or_direct_extract"
+    },
+    {
+      "field": "location",
+      "source": "recruiter_csv:row_14",
+      "method": "location_normalization"
+    },
+    {
+      "field": "headline",
+      "source": "resume_pdf",
+      "method": "keyword_inference"
+    },
+    {
+      "field": "links.github",
+      "source": "resume_pdf",
+      "method": "regex_extract"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "github_api",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "github_api",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "github_api",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "github_api",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "experience",
+      "source": "resume_pdf",
+      "method": "pattern_extract"
+    },
+    {
+      "field": "experience",
+      "source": "resume_pdf",
+      "method": "pattern_extract"
+    },
+    {
+      "field": "experience",
+      "source": "resume_pdf",
+      "method": "pattern_extract"
+    },
+    {
+      "field": "experience",
+      "source": "resume_pdf",
+      "method": "pattern_extract"
+    },
+    {
+      "field": "education",
+      "source": "resume_pdf",
+      "method": "pattern_extract"
+    },
+    {
+      "field": "education",
+      "source": "resume_pdf",
+      "method": "pattern_extract"
+    },
+    {
+      "field": "education",
+      "source": "resume_pdf",
+      "method": "pattern_extract"
+    }
+  ],
+  "overall_confidence": 0.86,
+  "warnings": [
+    {
+      "level": "warning",
+      "message": "Invalid phone skipped in CSV row 9: 77ABCXYZ99"
+    },
+    {
+      "level": "warning",
+      "message": "Empty CSV row skipped: row 15"
+    },
+    {
+      "level": "warning",
+      "message": "GitHub URL auto-detected from resume_pdf: https://github.com/PrajwinRodrigues"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+Spoke with Nikitha regarding internship opportunities.
+
+Currently pursuing B.E. Information Science at BMS College of Engineering (2023–2027), CGPA around 8.1.
+
+Strong interest in software engineering, backend development and machine learning.
+
+Projects discussed:
+- ML-based cardiovascular risk prediction in PCOS using Python and Scikit-learn.
+- Invoice Scanner & Expense Analyzer using Python, Flask, SQLite and OCR.
+
+Has an IEEE publication related to ML in healthcare.
+
+Technical skills include:
+Python, Java, C, C++, MySQL, MongoDB, HTML, CSS, JavaScript, Git and GitHub.
+
+Completed Google Cloud Career Launchpad (Cloud Engineer Track) and Nutanix Certified Associate certification.
+
+No prior full-time experience. Looking for Software Engineering Internship / SDE Intern roles.
+
+Candidate communicated well during discussion and demonstrated good understanding of data structures, OOP and ML fundamentals.
+
+Preferred location: Bengaluru.
+
+GitHub profile available. LinkedIn profile shared.
+
+Recommended for technical interview.

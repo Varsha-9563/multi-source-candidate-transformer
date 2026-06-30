@@ -1,0 +1,7 @@
+streamlit>=1.35
+# your existing pipeline deps — confirmed from your actual extractor/llm_normalizer code:
+# pdf_extractor.py uses pdfplumber directly; llm_normalizer.py calls Claude/Gemini
+# via raw requests.post, not the anthropic/google-generativeai SDKs, so those aren't needed.
+requests
+pdfplumber>=0.11
+python-dotenv

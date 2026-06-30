@@ -1,0 +1,404 @@
+{
+  "candidate_id": "cand_eb523f4947",
+  "full_name": "Varsha S",
+  "emails": [
+    "varshas.is23@bmsce.ac.in"
+  ],
+  "phones": [
+    "+918431239563",
+    "8431239563"
+  ],
+  "location": {
+    "city": "Bengaluru",
+    "region": "KA",
+    "country": "IN"
+  },
+  "links": {
+    "linkedin": null,
+    "github": null,
+    "portfolio": null,
+    "other": []
+  },
+  "headline": "Entry-Level Backend Developer (Spring Boot) with Kotlin",
+  "years_experience": null,
+  "skills": [
+    {
+      "name": "Accessibility Service",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Android SDK",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Android Studio",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Broadcast Receiver",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "CSS",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Datamuse API",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Gradle",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "HTML",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Hibernate",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "JPA",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "JWT",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Java",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Kotlin",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "MySQL",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "NoSQL",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Node.js",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Python",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "REST APIs",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "React",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Room Database",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "SQLite",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Spring Boot",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    },
+    {
+      "name": "Spring Security",
+      "confidence": 0.85,
+      "sources": [
+        "resume_pdf"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "College Academic ERP System",
+      "title": "Developer",
+      "start": null,
+      "end": null,
+      "summary": "Developed a web-based Academic ERP system for managing students, faculty, departments, course registration, attendance, and internal marks. Implemented JWT-based authentication and role-based access control using Spring Security. Built the backend using a layered architecture (Controller-Service-Repository) with Spring Dependency Injection and MySQL."
+    },
+    {
+      "company": "MindfulBlocker – Android Digital Wellness App",
+      "title": "Android Developer",
+      "start": null,
+      "end": null,
+      "summary": "Developed an Android digital wellness app that promotes mindful app usage by requiring users to enter a valid reason before opening blocked apps. Built with Kotlin, it uses Accessibility Services, the Datamuse API for validation, and Room Database for local data storage."
+    }
+  ],
+  "education": [
+    {
+      "institution": "BMS College of Engineering",
+      "degree": "B.E.",
+      "field": "Information Science and Engineering",
+      "end_year": 2027
+    }
+  ],
+  "provenance": [
+    {
+      "field": "full_name",
+      "source": "recruiter_csv:row_6",
+      "method": "direct_extract"
+    },
+    {
+      "field": "emails",
+      "source": "recruiter_csv:row_6",
+      "method": "regex_or_direct_extract"
+    },
+    {
+      "field": "phones",
+      "source": "recruiter_csv:row_6",
+      "method": "e164_normalization"
+    },
+    {
+      "field": "phones",
+      "source": "resume_pdf",
+      "method": "e164_normalization"
+    },
+    {
+      "field": "location",
+      "source": "recruiter_csv:row_6",
+      "method": "location_normalization"
+    },
+    {
+      "field": "headline",
+      "source": "recruiter_notes",
+      "method": "keyword_inference"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "skills",
+      "source": "resume_pdf",
+      "method": "canonical_skill_match"
+    },
+    {
+      "field": "experience",
+      "source": "resume_pdf",
+      "method": "pattern_extract"
+    },
+    {
+      "field": "experience",
+      "source": "resume_pdf",
+      "method": "pattern_extract"
+    },
+    {
+      "field": "education",
+      "source": "resume_pdf",
+      "method": "pattern_extract"
+    }
+  ],
+  "overall_confidence": 0.88,
+  "warnings": [
+    {
+      "level": "warning",
+      "message": "Empty CSV row skipped: row 5"
+    }
+  ]
+}
