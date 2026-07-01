@@ -21,7 +21,7 @@ Requires **Python 3.10+** (the codebase uses `str | None` type hints).
 
 ```bash
 git clone <this-repo-url>
-cd "eightfold ai"
+
 
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
